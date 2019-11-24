@@ -18,11 +18,22 @@ addTodo = (todo) => {
     this.setState({todos : newTodos})
 }
 
+toggleATodo = (todo) => {
+  let newTodos = []
+  this.state.todos.forEach((oldTodo) => {
+    if(todo === oldTodo) {
+      oldTodo.isDone = !oldTodo.isDone
+    }
+    newTodos.push(oldTodo)
+  })
+  this.setState({todos : newTodos})
+}
+
   render() {
     return (
       <div className="App">
         <Input addTodo={this.addTodo}/>
-        <List todos={this.state.todos}/>
+        <List toggleATodo={this.toggleATodo} todos={this.state.todos}/>
       </div>
     );
   }

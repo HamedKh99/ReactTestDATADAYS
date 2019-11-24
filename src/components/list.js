@@ -8,7 +8,7 @@ class List extends Component {
             <div>
                 <ul>
                     {
-                        this.props.todos.map((todo) => <p>{todo.text}</p>)
+                        this.props.todos.map((todo) => <li style={{textDecoration : (todo.isDone) ? 'line-through' : 'none'}} onClick={() => this.props.toggleATodo(todo)}>{todo.text}</li>)
                     }
                 </ul>
             </div>
